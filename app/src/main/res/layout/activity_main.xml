@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/main"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Top action bar -->
+    <LinearLayout
+        android:id="@+id/topPanel"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        android:background="#F5F5F5"
+        android:padding="2dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/hceReadButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="HCE READ"
+            android:textSize="9sp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/hceActButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="ACT CARD"
+            android:textSize="9sp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/formatButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="FORMAT"
+            android:textSize="9sp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:padding="0dp" />
+
+    </LinearLayout>
+
+    <!-- Scrollable report -->
+    <EditText
+        android:id="@+id/inputData"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="#FFFFFF"
+        android:hint="Text / URL / phone / APDU hex"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:singleLine="true"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@+id/topPanel"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomPanel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputData">
+
+        <ScrollView
+            android:id="@+id/scrollArea"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="6dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:id="@+id/titleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NFC Tool"
+                    android:textColor="#111111"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/statusText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="READ mode active. Tap NFC tag."
+                    android:textColor="#555555"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="#D6D6D6"
+                    android:paddingStart="3dp"
+                    android:paddingEnd="3dp"
+                    android:text="■ TAG SUMMARY"
+                    android:textColor="#000000"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/uidText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="UID: --"
+                    android:textColor="#000000"
+                    android:textIsSelectable="true"
+                    android:textSize="9sp"
+                    android:typeface="monospace" />
+
+                <TextView
+                    android:id="@+id/techText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="TECH: --"
+                    android:textColor="#000000"
+                    android:textIsSelectable="true"
+                    android:textSize="9sp"
+                    android:typeface="monospace" />
+
+                <TextView
+                    android:id="@+id/sectionTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="#D6D6D6"
+                    android:paddingStart="3dp"
+                    android:paddingEnd="3dp"
+                    android:text="■ OUTPUT"
+                    android:textColor="#000000"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/resultText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="1dp"
+                    android:text="No data."
+                    android:textColor="#000000"
+                    android:textIsSelectable="true"
+                    android:textSize="8.5sp"
+                    android:typeface="monospace" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </HorizontalScrollView>
+
+    <!-- Bottom fixed controls -->
+    <LinearLayout
+        android:id="@+id/bottomPanel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#F7F7F7"
+        android:elevation="8dp"
+        android:padding="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+
+            <Button
+                android:id="@+id/readButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="READ"
+                android:textSize="9sp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="0dp" />
+
+            <Button
+                android:id="@+id/writeButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="WRITE"
+                android:textSize="9sp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="0dp" />
+
+            <Button
+                android:id="@+id/mifareButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="MIFARE"
+                android:textSize="9sp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="0dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+
+            <Button
+                android:id="@+id/hexButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="HEX"
+                android:textSize="9sp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="0dp" />
+
+            <Button
+                android:id="@+id/apduButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="APDU"
+                android:textSize="9sp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="0dp" />
+
+            <Button
+                android:id="@+id/hceButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="HCE SIM"
+                android:textSize="9sp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="0dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

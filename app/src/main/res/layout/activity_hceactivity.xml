@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:background="#FFFFFF">
+
+    <!-- Scrollable content -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/hceBottomPanel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HCE Card Emulator"
+                android:textColor="#111111"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter data and save. Then tap from another phone."
+                android:textColor="#555555"
+                android:textSize="10sp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="■ CARD DATA"
+                android:textColor="#000000"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:background="#D6D6D6"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
+                android:layout_marginTop="8dp" />
+
+            <EditText
+                android:id="@+id/cardDataInput"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:hint="https://example.com or tel:+91..."
+                android:singleLine="true"
+                android:textSize="10sp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:background="#FFFFFF"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="■ HCE APDU FLOW"
+                android:textColor="#000000"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:background="#D6D6D6"
+                android:paddingStart="3dp"
+                android:paddingEnd="3dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SELECT:
+00 A4 04 00 07 F0 01 02 03 04 05 06 00
+
+RESPONSE:
+HCE_READY + 90 00
+
+GET DATA:
+00 CA 00 00 00
+
+RESPONSE:
+Saved data + 90 00
+
+Note:
+This is ISO-DEP (APDU) HCE, not MIFARE/NTAG."
+                android:textColor="#000000"
+                android:textSize="8.5sp"
+                android:typeface="monospace"
+                android:textIsSelectable="true"
+                android:lineSpacingExtra="1dp"
+                android:includeFontPadding="false"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Bottom fixed controls -->
+    <LinearLayout
+        android:id="@+id/hceBottomPanel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#F7F7F7"
+        android:elevation="8dp"
+        android:padding="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="SAVE CARD DATA"
+            android:textSize="9sp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:padding="0dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+
+            <Button
+                android:id="@+id/sampleLinkButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="LINK"
+                android:textSize="9sp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="0dp" />
+
+            <Button
+                android:id="@+id/samplePhoneButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="PHONE"
+                android:textSize="9sp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="0dp" />
+
+            <Button
+                android:id="@+id/sampleTextButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="TEXT"
+                android:textSize="9sp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="0dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

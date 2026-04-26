@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TooL</string>
+
+    <string name="hce_service_description">NFC HCE Card Emulator</string>
+    <string name="hce_aid_group">NFC Tool HCE AID</string>
+
+
+</resources>
